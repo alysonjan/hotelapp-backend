@@ -2,10 +2,14 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { DatabaseService } from 'src/database/database.service';
 import { SignInDto } from './dto/auth.dto';
 import { compare } from 'utils/Encryption';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-    constructor(private readonly databaseservice : DatabaseService) {}
+    constructor(
+        private readonly databaseservice : DatabaseService,
+        private jwtService: JwtService
+    ) {}
 
     async signIn(signInDto : SignInDto) {
 
@@ -27,10 +31,11 @@ export class AuthService {
         }
         
         const { password, ...userWithoutPassword } = findUser;
+
+        const payload = { sub: userWithoutPassword.id, username: userWithoutPassword.email };
+        
         return {
-            statusCode: 200, // Assuming successful creation status code
-            message: 'successfully login',
-            data: userWithoutPassword
-          };
+            access_token: await this.jwtService.signAsync(payload),
+        };
     }
 }
