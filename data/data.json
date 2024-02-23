@@ -1,0 +1,72 @@
+{
+    "rooms": [
+      {
+        "id": 1,
+        "type": "Single",
+        "description": "Cozy single room with a comfortable bed.",
+        "amenities": ["WiFi", "TV", "Air conditioning"],
+        "price": 50,
+        "availability": true,
+        "images": ["room1.jpg", "room1-2.jpg"]
+      },
+      {
+        "id": 2,
+        "type": "Double",
+        "description": "Spacious double room with a king-sized bed.",
+        "amenities": ["WiFi", "TV", "Air conditioning", "Mini fridge"],
+        "price": 80,
+        "availability": true,
+        "images": ["room2.jpg", "room2-2.jpg"]
+      }
+    ],
+    "reservations": [
+      {
+        "id": 1,
+        "checkInDate": "2024-03-01",
+        "checkOutDate": "2024-03-05",
+        "numberOfGuests": 2,
+        "roomId": 1,
+        "guestInformation": {
+          "name": "John Doe",
+          "contactInformation": "john@example.com",
+          "address": "123 Main St, City, Country",
+          "paymentDetails": {
+            "cardNumber": "************1234",
+            "expiryDate": "03/28",
+            "cvv": "***"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "checkInDate": "2024-03-10",
+        "checkOutDate": "2024-03-15",
+        "numberOfGuests": 1,
+        "roomId": 2,
+        "guestInformation": {
+          "name": "Alice Smith",
+          "contactInformation": "alice@example.com",
+          "address": "456 Elm St, Town, Country",
+          "paymentDetails": {
+            "cardNumber": "************5678",
+            "expiryDate": "05/27",
+            "cvv": "***"
+          }
+        }
+      }
+    ],
+    "authentication": {
+      "users": [
+        {
+          "id": 1,
+          "username": "user1",
+          "password": "password1"
+        },
+        {
+          "id": 2,
+          "username": "user2",
+          "password": "password2"
+        }
+      ]
+    }
+  }
